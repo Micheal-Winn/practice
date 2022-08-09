@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
 </head>
 <body>
+<ul id="list"></ul>
+<input type="text" id="input">
     
+
+<script>
+    let list = document.getElementById("list");
+    let input = document.getElementById("input");
+    function createList(text)
+    {
+        let li = document.createElement("li");
+        li.innerText = text;
+        li.classList.add("animate__animated","animate__backInDown");
+        list.append(li);
+    }
+    input.addEventListener("keyup",(e)=>
+    {
+        if(e.keyCode === 13)
+        {
+            createList(input.value);
+            input.value = null;
+        }
+    })
+</script>
+
 </body>
 </html>
